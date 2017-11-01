@@ -23,9 +23,7 @@
     "node-nicovideo-api": "^0.6.2",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
-    "request": "^2.83.0",
-    "request-promise": "^4.2.2",
-    "whatwg-fetch": "^2.0.3"
+    "request": "^2.83.0"
   },
   "devDependencies": {
     "babel-eslint": "^8.0.1",
