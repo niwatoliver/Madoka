@@ -144,6 +144,10 @@ ast-types-flow@0.0.7:
   version "0.0.7"
   resolved "https://registry.yarnpkg.com/ast-types-flow/-/ast-types-flow-0.0.7.tgz#f70b735c6bca1a5c9c22d982c3e39e7feba3bdad"
 
+async@0.1.x:
+  version "0.1.22"
+  resolved "https://registry.yarnpkg.com/async/-/async-0.1.22.tgz#0fc1aaa088a0e3ef0ebe2d8831bab0dcf8845061"
+
 async@0.2.x, async@~0.2.9:
   version "0.2.10"
   resolved "https://registry.yarnpkg.com/async/-/async-0.2.10.tgz#b6bbe0b0674b9d719708ca38de8c237cb526c3d1"
@@ -865,6 +869,10 @@ code-point-at@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/code-point-at/-/code-point-at-1.1.0.tgz#0d070b4d043a5bea33a2f1a40e2edb3d9a4ccf77"
 
+coffee-script@1.4.x:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/coffee-script/-/coffee-script-1.4.0.tgz#5e3bc8aac26c01a8e27bf107722c5655f5ad7d36"
+
 color-convert@^1.9.0:
   version "1.9.0"
   resolved "https://registry.yarnpkg.com/color-convert/-/color-convert-1.9.0.tgz#1accf97dd739b983bf994d56fec8f95853641b7a"
@@ -875,7 +883,7 @@ color-name@^1.1.1:
   version "1.1.3"
   resolved "https://registry.yarnpkg.com/color-name/-/color-name-1.1.3.tgz#a7d0558bd89c42f795dd42328f740831ca53bc25"
 
-colors@0.6.x:
+colors@0.6.x, colors@0.x.x:
   version "0.6.2"
   resolved "https://registry.yarnpkg.com/colors/-/colors-0.6.2.tgz#2423fe6678ac0c5dae8852e5d0e5be08c997abcc"
 
@@ -894,6 +902,12 @@ combined-stream@~0.0.4, combined-stream@~0.0.5:
   resolved "https://registry.yarnpkg.com/combined-stream/-/combined-stream-0.0.7.tgz#0137e657baa5a7541c57ac37ac5fc07d73b4dc1f"
   dependencies:
     delayed-stream "0.0.5"
+
+commander@1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/commander/-/commander-1.1.1.tgz#50d1651868ae60eccff0a2d9f34595376bc6b041"
+  dependencies:
+    keypress "0.1.x"
 
 concat-map@0.0.1:
   version "0.0.1"
@@ -1004,15 +1018,15 @@ dashdash@^1.12.0:
   dependencies:
     assert-plus "^1.0.0"
 
-debug@2.6.9, debug@^2.1.3, debug@^2.2.0, debug@^2.6.0, debug@^2.6.6, debug@^2.6.8:
-  version "2.6.9"
-  resolved "https://registry.yarnpkg.com/debug/-/debug-2.6.9.tgz#5d128515df134ff327e90a4c93f4e077a536341f"
+debug@*, debug@^3.0.1:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/debug/-/debug-3.1.0.tgz#5bb5a0672628b64149566ba16819e61518c67261"
   dependencies:
     ms "2.0.0"
 
-debug@^3.0.1:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/debug/-/debug-3.1.0.tgz#5bb5a0672628b64149566ba16819e61518c67261"
+debug@2.6.9, debug@^2.1.3, debug@^2.2.0, debug@^2.6.0, debug@^2.6.6, debug@^2.6.8:
+  version "2.6.9"
+  resolved "https://registry.yarnpkg.com/debug/-/debug-2.6.9.tgz#5d128515df134ff327e90a4c93f4e077a536341f"
   dependencies:
     ms "2.0.0"
 
@@ -1596,6 +1610,10 @@ form-data@~2.3.1:
     combined-stream "^1.0.5"
     mime-types "^2.1.12"
 
+fresh@0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/fresh/-/fresh-0.1.0.tgz#03e4b0178424e4c2d5d19a54d8814cdc97934850"
+
 fs-extra@^0.30.0:
   version "0.30.0"
   resolved "https://registry.yarnpkg.com/fs-extra/-/fs-extra-0.30.0.tgz#f233ffcc08d4da7d432daa449776989db1df93f0"
@@ -1815,6 +1833,15 @@ htmlparser2@~3.8.1:
 http-parser-js@>=0.4.0:
   version "0.4.9"
   resolved "https://registry.yarnpkg.com/http-parser-js/-/http-parser-js-0.4.9.tgz#ea1a04fb64adff0242e9974f297dd4c3cad271e1"
+
+http-proxy@0.10.0:
+  version "0.10.0"
+  resolved "https://registry.yarnpkg.com/http-proxy/-/http-proxy-0.10.0.tgz#a20b718d05ec40427ae61644dabdcc427ba62508"
+  dependencies:
+    colors "0.x.x"
+    optimist "0.3.x"
+    pkginfo "0.2.x"
+    utile "~0.1.7"
 
 http-signature@~0.10.0:
   version "0.10.1"
@@ -2129,6 +2156,10 @@ jws@^3.0.0, jws@^3.1.4:
     jwa "^1.1.4"
     safe-buffer "^5.0.1"
 
+keypress@0.1.x:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/keypress/-/keypress-0.1.0.tgz#4a3188d4291b66b4f65edb99f806aa9ae293592a"
+
 klaw@^1.0.0:
   version "1.3.1"
   resolved "https://registry.yarnpkg.com/klaw/-/klaw-1.3.1.tgz#4088433b46b3b1ba259d78785d8e96f73ba02439"
@@ -2253,6 +2284,10 @@ mime-types@~2.0.1, mime-types@~2.0.3:
   dependencies:
     mime-db "~1.12.0"
 
+mime@1.2.6:
+  version "1.2.6"
+  resolved "https://registry.yarnpkg.com/mime/-/mime-1.2.6.tgz#b1f86c768c025fa87b48075f1709f28aeaf20365"
+
 mime@^1.4.1:
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/mime/-/mime-1.4.1.tgz#121f9ebc49e3766f311a76e1fa1c8003c4b03aa6"
@@ -2308,6 +2343,10 @@ mute-stream@0.0.7, mute-stream@~0.0.4:
 natural-compare@^1.4.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/natural-compare/-/natural-compare-1.4.0.tgz#4abebfeed7541f2c27acfb29bdbbd15c8d5ba4f7"
+
+ncp@0.2.x:
+  version "0.2.7"
+  resolved "https://registry.yarnpkg.com/ncp/-/ncp-0.2.7.tgz#46fac2b7dda2560a4cb7e628677bd5f64eac5be1"
 
 ncp@0.4.x:
   version "0.4.2"
@@ -2415,6 +2454,12 @@ opn@5.1.0:
   resolved "https://registry.yarnpkg.com/opn/-/opn-5.1.0.tgz#72ce2306a17dbea58ff1041853352b4a8fc77519"
   dependencies:
     is-wsl "^1.1.0"
+
+optimist@0.3.x:
+  version "0.3.7"
+  resolved "https://registry.yarnpkg.com/optimist/-/optimist-0.3.7.tgz#c90941ad59e4273328923074d2cf2e7cbc6ec0d9"
+  dependencies:
+    wordwrap "~0.0.2"
 
 optionator@^0.8.2:
   version "0.8.2"
@@ -2525,6 +2570,10 @@ pkg-dir@^1.0.0:
   dependencies:
     find-up "^1.0.0"
 
+pkginfo@0.2.x:
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/pkginfo/-/pkginfo-0.2.3.tgz#7239c42a5ef6c30b8f328439d9b9ff71042490f8"
+
 pkginfo@0.3.x:
   version "0.3.1"
   resolved "https://registry.yarnpkg.com/pkginfo/-/pkginfo-0.3.1.tgz#5b29f6a81f70717142e09e765bbeab97b4f81e21"
@@ -2629,6 +2678,10 @@ querystringify@0.0.x:
 querystringify@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/querystringify/-/querystringify-1.0.0.tgz#6286242112c5b712fa654e526652bf6a13ff05cb"
+
+range-parser@0.0.4:
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/range-parser/-/range-parser-0.0.4.tgz#c0427ffef51c10acba0782a46c9602e744ff620b"
 
 rc@^1.1.2:
   version "1.2.2"
@@ -2804,6 +2857,16 @@ regjsparser@^0.1.4:
   dependencies:
     jsesc "~0.5.0"
 
+remote@^0.2.6:
+  version "0.2.6"
+  resolved "https://registry.yarnpkg.com/remote/-/remote-0.2.6.tgz#96842b427bb19d404793867cce402cee42dcd364"
+  dependencies:
+    coffee-script "1.4.x"
+    commander "1.1.1"
+    http-proxy "0.10.0"
+    send "0.1.0"
+    underscore "1.4.x"
+
 repeating@^2.0.0:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/repeating/-/repeating-2.0.1.tgz#5214c53a926d3552707527fbab415dbc08d06dda"
@@ -2907,6 +2970,10 @@ revalidator@0.1.x:
   version "0.1.8"
   resolved "https://registry.yarnpkg.com/revalidator/-/revalidator-0.1.8.tgz#fece61bfa0c1b52a206bd6b18198184bdd523a3b"
 
+rimraf@1.x.x:
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/rimraf/-/rimraf-1.0.9.tgz#be4801ff76c2ba6f1c50c78e9700eb1d21f239f1"
+
 rimraf@2.x.x, rimraf@^2.2.8:
   version "2.6.2"
   resolved "https://registry.yarnpkg.com/rimraf/-/rimraf-2.6.2.tgz#2ed8150d24a16ea8651e6d6ef0f47c4158ce7a36"
@@ -2940,6 +3007,15 @@ safe-buffer@^5.0.1, safe-buffer@^5.1.1, safe-buffer@~5.1.0, safe-buffer@~5.1.1:
 semver@5.3.0:
   version "5.3.0"
   resolved "https://registry.yarnpkg.com/semver/-/semver-5.3.0.tgz#9b2ce5d3de02d17c6012ad326aa6b4d0cf54f94f"
+
+send@0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/send/-/send-0.1.0.tgz#cfb08ebd3cec9b7fc1a37d9ff9e875a971cf4640"
+  dependencies:
+    debug "*"
+    fresh "0.1.0"
+    mime "1.2.6"
+    range-parser "0.0.4"
 
 setimmediate@^1.0.5:
   version "1.0.5"
@@ -3255,6 +3331,10 @@ underscore-plus@1.x:
   dependencies:
     underscore "~1.6.0"
 
+underscore@1.4.x:
+  version "1.4.4"
+  resolved "https://registry.yarnpkg.com/underscore/-/underscore-1.4.4.tgz#61a6a32010622afa07963bf325203cf12239d604"
+
 underscore@~1.6.0:
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/underscore/-/underscore-1.6.0.tgz#8b38b10cacdef63337b8b24e4ff86d45aea529a8"
@@ -3287,6 +3367,17 @@ utile@0.2.x:
     mkdirp "0.x.x"
     ncp "0.4.x"
     rimraf "2.x.x"
+
+utile@~0.1.7:
+  version "0.1.7"
+  resolved "https://registry.yarnpkg.com/utile/-/utile-0.1.7.tgz#55db180d54475339fd6dd9e2d14a4c0b52624b69"
+  dependencies:
+    async "0.1.x"
+    deep-equal "*"
+    i "0.3.x"
+    mkdirp "0.x.x"
+    ncp "0.2.x"
+    rimraf "1.x.x"
 
 uuid@^3.1.0:
   version "3.1.0"
@@ -3339,6 +3430,10 @@ winston@0.8.x:
     isstream "0.1.x"
     pkginfo "0.3.x"
     stack-trace "0.0.x"
+
+wordwrap@~0.0.2:
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/wordwrap/-/wordwrap-0.0.3.tgz#a3d5da6cd5c0bc0008d37234bbaf1bed63059107"
 
 wordwrap@~1.0.0:
   version "1.0.0"

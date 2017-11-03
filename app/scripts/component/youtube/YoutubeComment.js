@@ -2,25 +2,25 @@ import GApi from 'googleapis';
 const youtube = GApi.youtube({version: 'v3'});
 
 //cost 12
-export class YoutubeComment {
+//TODO polling管理
+export default class YoutubeComment {
 
-  constructor(apiKey, callback) {
+  constructor(apiKey) {
     this._apiKey = apiKey;
-    this._callback = callback;
     this._timer = null;
   }
 
   connectChat(video_id, fn) {
-    let chatId, nextPageToken;
     youtube.videos.list({part: 'snippet, liveStreamingDetails', id: video_id, auth: this._apiKey}, (err, data) => {
       if (err) { console.error('Error: ' + err); }
       if (data && data.items[0] && data.items[0].liveStreamingDetails && data.items[0].liveStreamingDetails.activeLiveChatId) {
         fn(data.items[0].liveStreamingDetails.activeLiveChatId);
-      } else { console.log(data); }
+      } else { console.log('else'+data); }
     });
+    return this;
   }
 
-  connectComment(chatId) {
+  connectComment(chatId, fn) {
     youtube.liveChatMessages.list({
       part: 'snippet',
       liveChatId: chatId,
@@ -29,20 +29,19 @@ export class YoutubeComment {
     }, (err, data) => {
       if (err) { console.error('Error: ' + err); }
       if (data) {
-        console.log(data);
+        console.log('polling!!');
         this._nextPageToken = data.nextPageToken;
-        this._callback(data.items.map(item => item.snippet.displayMessage));
-          this._timer = setTimeout( () => {
-            console.log("aaa");
-          this.connectComment(chatId);
-        }, data.pollingIntervalMillis)
+        fn(data.items.map(item => item.snippet.displayMessage));
+        this._timer = setTimeout( () => {
+          this.connectComment(chatId, fn);
+        }, data.pollingIntervalMillis);
       }
     });
+    return this;
   }
 
   stopComment() {
     clearTimeout(this._timer);
-    console.log('stop!!');
     return this;
   }
-};
+}

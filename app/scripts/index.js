@@ -1,5 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './component/App';
+import CommentWindow from './component/CommentWindow';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<CommentWindow />, document.getElementById('comment-window'));
