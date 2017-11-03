@@ -1,0 +1,23 @@
+#player {
+    float: left;
+}
+
+#youtube-comments {
+    float: left;
+}
+
+#player-wrapper {
+    width: 500px;
+    height: 300px;
+    position: relative;
+}
+
+#player {
+    position: absolute;
+}
+
+#overlay {
+    width: 500px;
+    height: 300px;
+    position: absolute;
+}

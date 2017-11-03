@@ -3,7 +3,7 @@ import Net from 'net';
 
 export const NiconicoComment = {
   pullComment:
-    Nico.login("", "")
+    Nico.login(process.env.NICONICO_MAIL, process.env.NICONICO_PASS)
       .then(session => session.live.getLiveInfo("lv308307054"))
       .then(live => {
         console.log(live);
