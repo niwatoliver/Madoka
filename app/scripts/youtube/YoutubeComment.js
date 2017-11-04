@@ -15,7 +15,7 @@ export default class YoutubeComment {
       if (err) { console.error('Error: ' + err); }
       if (data && data.items[0] && data.items[0].liveStreamingDetails && data.items[0].liveStreamingDetails.activeLiveChatId) {
         fn(data.items[0].liveStreamingDetails.activeLiveChatId);
-      } else { console.log('else'+data); }
+      } else { console.log(data); }
     });
     return this;
   }

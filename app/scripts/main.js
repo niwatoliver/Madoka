@@ -2,7 +2,7 @@ import Shuvi from 'shuvi-lib';
 const { remote } = require('electron');
 const currentWindow = remote.getCurrentWindow();
 
-const VIDEO_ID = 'ttW_-8pVg_o';
+const VIDEO_ID = 'jqaycEsE0p8';
 let type = 'default-comment';
 
 const shuvi = new Shuvi({
@@ -16,20 +16,24 @@ const shuvi = new Shuvi({
 
 /* video load ----------------------------------------------------------- */
 shuvi.on('load', () => {
-  //shuvi.player.playVideo();
+  shuvi.player.playVideo();
   document.getElementById('youtube-wrapper').style.display = 'flex';
+  setComponentSize(type);
+  window.onresize = () => { setComponentSize(type); };
+  const cw = document.getElementsByClassName('comment-wrap')[0];
+  cw.scrollTop = cw.scrollHeight;
 });
 
 /* resize ----------------------------------------------------------- */
 function setComponentSize(type){
   if(type === 'default-comment'){
-    document.getElementById('comment-window').style.height = window.innerHeight + 'px';
+    document.getElementsByClassName('comment-wrap')[0].style.height = window.innerHeight - 56 + 'px';
     document.getElementById('overlay').style.width = (3/5) * window.innerWidth + 'px';
     document.getElementById('overlay').style.height = window.innerHeight + 'px';
     document.getElementById('player-wrapper').style.height = window.innerHeight + 'px';
     shuvi.resize((3/5) * window.innerWidth, window.innerHeight);
   } else if(type === 'open-comment'){
-    document.getElementById('comment-window').style.height = window.innerHeight + 'px';
+    document.getElementsByClassName('comment-wrap')[0].style.height = window.innerHeight - 56 + 'px';
     document.getElementById('player-wrapper').style.height = window.innerHeight + 'px';
   } else if(type === 'hidden-comment'){
     document.getElementById('overlay').style.width = window.innerWidth + 'px';
@@ -38,11 +42,6 @@ function setComponentSize(type){
     shuvi.resize(window.innerWidth, window.innerHeight);
   }
 }
-
-window.onload = () => {
-  setComponentSize(type);
-  window.onresize = () => { setComponentSize(type); };
-};
 
 document.getElementById('restart').addEventListener('click', restart, false);
 document.getElementById('stop').addEventListener('click', stop, false);
@@ -63,6 +62,7 @@ function stop() { shuvi.pause(); }
 /* Comment Hidden  ----------------------------------------------------------- */
 document.getElementById('hidden-comment').addEventListener('click', hiddenComment, false);
 function hiddenComment() {
+  currentWindow.setMinimumSize(420, 235);
   currentWindow.setSize(
     currentWindow.getSize()[0] - document.getElementById('comment-window').offsetWidth,
     currentWindow.getSize()[1]
@@ -75,6 +75,7 @@ function hiddenComment() {
 /* Comment Open  ----------------------------------------------------------- */
 document.getElementById('open-comment').addEventListener('click', openComment, false);
 function openComment() {
+  currentWindow.setMinimumSize(700, 235);
   currentWindow.setSize(
     Math.floor(document.getElementById('player-wrapper').offsetWidth * (5/3)),
     currentWindow.getSize()[1]
