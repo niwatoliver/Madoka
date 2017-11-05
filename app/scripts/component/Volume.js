@@ -20,15 +20,24 @@ class Volume extends Component {
       if(this.pLeft === null){ this.pLeft = pickerElement.getBoundingClientRect().left; }
       if(this.dragFlg){
         this.x += e.movementX;
-        if(this.x > 90){ this.x = 90; } else if(this.x < -10) { this.x = -10; }
-        pickerElement.style.left = this.x + 'px';
-        this.shuvi.setVolume((this.x + 10)/100);
+        this.setVolume(this.x, pickerElement);
       }
     });
+    document.getElementById('volume-zero').addEventListener("click" , () => { this.setVolume(0, pickerElement); });
+    document.getElementById('volume-max').addEventListener("click" , () => { this.setVolume(90, pickerElement); });
   }
+
+  setVolume(x, pickerElement) {
+    if(x > 90){ x = 90; } else if(x < -10) { x = -10; }
+    this.shuvi.setVolume(0);
+    this.x = x;
+    pickerElement.style.left = this.x + 'px';
+    this.shuvi.setVolume((this.x + 10)/100);
+  }
+
   render() {
     return (
-      <div id="picker"></div>
+      <div id="picker"/>
     );
   }
 }
