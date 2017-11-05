@@ -19,8 +19,11 @@ const shuvi = new Shuvi({
   loop     : false                       // [option]ループ（デフォルトはfalse)
 });
 
+window.shuvi = shuvi;
+
 /* video load ----------------------------------------------------------- */
 shuvi.on('load', () => {
+  shuvi.setVolume(0.6);
   shuvi.player.playVideo();
   document.getElementById('youtube-wrapper').style.display = 'flex';
   setComponentSize(type);

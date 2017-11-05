@@ -5,13 +5,12 @@ class Volume extends Component {
   constructor() {
     super();
     this.youtubeUtil = window.youtubeUtil;
+    this.shuvi = window.shuvi;
     this.dragFlg = false;
-    this.state = { volume: 0 };
     this.pLeft = null;
     this.x = 50;
   }
   componentDidMount() {
-    console.log('didMount')
     const pickerElement = document.getElementById('picker');
     console.log(pickerElement.getBoundingClientRect().left);
     pickerElement.addEventListener("mousedown" , () => { this.dragFlg = true; });
@@ -23,6 +22,7 @@ class Volume extends Component {
         this.x += e.movementX;
         if(this.x > 90){ this.x = 90; } else if(this.x < -10) { this.x = -10; }
         pickerElement.style.left = this.x + 'px';
+        this.shuvi.setVolume((this.x + 10)/100);
       }
     });
   }
