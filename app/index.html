@@ -12,12 +12,34 @@
     <div id="player"></div>
     <div id="overlay">
       <div id="player-header">
-        <p><span class="css-cancel"></span><span>動画タイトル</span>　<span id="hidden-comment">コメント隠す</span>　<span id="open-comment">コメント出す</span></p>
+        <div id="exit">
+          <div class="css-exit"></div>
+        </div>
+        <p id="video-title">放送タイトル</p>
+        <div id="comment-toggle-wrap">
+          <p class="comment-trigger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </p>
+        </div>
+        <!--<p id="open-comment">＜</p>-->
       </div>
       <div id="player-operation">
         <div id="stop">stop</div>
         <div id="start">start</div>
         <div id="restart">live</div>
+        <div id="volume-wrapper">
+          <div class="volume-icon-wrapper">
+            <div class="volume-icon-base"></div>
+          </div>
+          <div id="volume"></div>
+          <div class="volume-icon-wrapper">
+            <div class="volume-icon-base">
+              <div class="volume-icon-3"></div>
+            </div>
+          </div>
+        </div>
         <label>
         <input id="search" type="search"/>
         </label>
@@ -31,8 +53,8 @@
 
 <script>
   require('babel-register');
-  require('./scripts/index');
   require('./scripts/main');
+  require('./scripts/react-index');
 </script>
 </body>
 </html>
