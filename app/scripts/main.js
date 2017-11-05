@@ -100,7 +100,7 @@ document.getElementById('stop').addEventListener('click', stop, false);
 document.getElementById('start').addEventListener('click', start, false);
 document.getElementById('play').addEventListener('click', videoChange, false);
 
-function videoChange() { shuvi.change(document.getElementById('search').value); }
+function videoChange() { shuvi.change(document.getElementById('search-box').value); }
 
 function restart() {
   shuvi.seek(1);
@@ -116,7 +116,7 @@ function stop() { shuvi.pause(); }
 //   console.log(shuvi.duration());
 //   console.log('current');
 //   console.log(shuvi.current());
-//   console.log(shuvi.player.getCurrentTime());
-//   console.log('buffer');
-//   console.log(shuvi.buffer());
+//   // console.log(shuvi.player.getCurrentTime());
+//   // console.log('buffer');
+//   // console.log(shuvi.buffer());
 // }, 1000);
