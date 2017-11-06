@@ -17,8 +17,8 @@ export default class YoutubeComment {
     youtube.videos.list({part: 'snippet, liveStreamingDetails', id: video_id, auth: this._apiKey}, (err, data) => {
       if (err) { console.error('Error: ' + err); }
       if (data && data.items[0] && data.items[0].liveStreamingDetails && data.items[0].liveStreamingDetails.activeLiveChatId) {
-        fn(data.items[0].liveStreamingDetails.activeLiveChatId);
         this._title = data.items[0].snippet.title;
+        fn(data.items[0].liveStreamingDetails.activeLiveChatId);
       } else { console.log(data); }
     });
     return this;

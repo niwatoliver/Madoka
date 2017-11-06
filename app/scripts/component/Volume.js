@@ -5,7 +5,7 @@ class Volume extends Component {
   constructor() {
     super();
     this.youtubeUtil = window.youtubeUtil;
-    this.shuvi = window.shuvi;
+    this.shuvi = null;
     this.dragFlg = false;
     this.pLeft = null;
     this.x = 50;
@@ -28,11 +28,12 @@ class Volume extends Component {
   }
 
   setVolume(x, pickerElement) {
+    if(!this.shuvi && window.shuvi){ this.shuvi = window.shuvi; }
     if(x > 90){ x = 90; } else if(x < -10) { x = -10; }
-    this.shuvi.setVolume(0);
     this.x = x;
     pickerElement.style.left = this.x + 'px';
-    this.shuvi.setVolume((this.x + 10)/100);
+    if(this.shuvi){ this.shuvi.setVolume((this.x + 10)/100); }
+    window.video_volume = (this.x + 10)/100;
   }
 
   render() {

@@ -6,7 +6,6 @@
   <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
 </head>
 <body>
-
 <div id="youtube-wrapper">
   <div id="player-wrapper">
     <div id="player"></div>
@@ -25,21 +24,29 @@
         </div>
       </div>
       <div id="player-operation">
-        <label id="search">
-          <input id="search-box" type="search"/>
-          <span id="play">検索</span>
-          <span id="stop"></span>
-          <span id="start">s</span>
-          <span id="restart">l</span>
-        </label>
-        <div id="volume-wrapper">
-          <div class="volume-icon-wrapper" id="volume-zero">
-            <div class="volume-icon-base"></div>
-          </div>
-          <div id="volume"></div>
-          <div class="volume-icon-wrapper" id="volume-max">
-            <div class="volume-icon-base">
-              <div class="volume-icon-3"></div>
+        <div id="player-operation-top">
+          <div id="now-time">経過時間：10:00:00</div>
+          <div id="stop" class="stop-icon"></div>
+          <div id="start" class="play-icon"></div>
+          <div id="latest">latest</div>
+          <div id="reload" class="reload-icon"></div>
+          <div>画質</div>
+        </div>
+        <div id="player-operation-bottom">
+          <label id="search">
+            <span id="search-label">動画ID:</span>
+            <input id="search-box" type="search"/>
+            <span class="search-icon" id="play"></span>
+          </label>
+          <div id="volume-wrapper">
+            <div class="volume-icon-wrapper" id="volume-zero">
+              <div class="volume-icon-base"></div>
+            </div>
+            <div id="volume"></div>
+            <div class="volume-icon-wrapper" id="volume-max">
+              <div class="volume-icon-base">
+                <div class="volume-icon-3"></div>
+              </div>
             </div>
           </div>
         </div>

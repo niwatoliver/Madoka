@@ -7,30 +7,16 @@ import './component/Volume';
 window.youtubeUtil = new YoutubeUtil(process.env.YOUTUBE_API_KRY);
 const { remote } = require('electron');
 const currentWindow = remote.getCurrentWindow();
+const dialog = remote.dialog;
 const VIDEO_ID = process.env.YOUTUBE_INIT_VIDEO_ID;
 let type = 'default-comment';
 
-const shuvi = new Shuvi({
-  video_id : VIDEO_ID,                   // 動画ID
-  id       : 'player',                   // 要素のID
-  width    : (3/5) * window.innerWidth,  // 画面の幅
-  height   : window.innerHeight,         // 画面の高さ
-  autoplay : false,                      // [option]自動再生（デフォルトはtrue）
-  loop     : false                       // [option]ループ（デフォルトはfalse)
-});
+document.getElementById('youtube-wrapper').style.display = 'flex';
+window.addEventListener('load',() => { setComponentSize(type); });
+window.addEventListener('resize',() => { setComponentSize(type); });
+window.video_volume = 0.6;
 
-window.shuvi = shuvi;
-
-/* video load ----------------------------------------------------------- */
-shuvi.on('load', () => {
-  shuvi.setVolume(0.6);
-  shuvi.player.playVideo();
-  document.getElementById('youtube-wrapper').style.display = 'flex';
-  setComponentSize(type);
-  window.addEventListener('resize',() => { setComponentSize(type); });
-  const cw = document.getElementsByClassName('comment-wrap')[0];
-  cw.scrollTop = cw.scrollHeight;
-});
+let shuvi = null;
 
 /* resize ----------------------------------------------------------- */
 function setComponentSize(type){
@@ -39,7 +25,7 @@ function setComponentSize(type){
     document.getElementById('overlay').style.width = (3/5) * window.innerWidth + 'px';
     document.getElementById('overlay').style.height = window.innerHeight + 'px';
     document.getElementById('player-wrapper').style.height = window.innerHeight + 'px';
-    shuvi.resize((3/5) * window.innerWidth, window.innerHeight);
+    if(shuvi){ shuvi.resize((3/5) * window.innerWidth, window.innerHeight); }
   } else if(type === 'open-comment'){
     document.getElementsByClassName('comment-wrap')[0].style.height = window.innerHeight - 56 + 'px';
     document.getElementById('player-wrapper').style.height = window.innerHeight + 'px';
@@ -47,7 +33,7 @@ function setComponentSize(type){
     document.getElementById('overlay').style.width = window.innerWidth + 'px';
     document.getElementById('overlay').style.height = window.innerHeight + 'px';
     document.getElementById('player-wrapper').style.height = window.innerHeight + 'px';
-    shuvi.resize(window.innerWidth, window.innerHeight);
+    if(shuvi){ shuvi.resize(window.innerWidth, window.innerHeight); }
   }
 }
 
@@ -95,14 +81,53 @@ function openComment() {
   type = 'default-comment';
 }
 
-document.getElementById('restart').addEventListener('click', restart, false);
+/* Click event  ----------------------------------------------------------- */
+document.getElementById('reload').addEventListener('click', restart, false);
 document.getElementById('stop').addEventListener('click', stop, false);
 document.getElementById('start').addEventListener('click', start, false);
 document.getElementById('play').addEventListener('click', videoChange, false);
+document.getElementById('latest').addEventListener('click', latest, false);
 
-function videoChange() { shuvi.change(document.getElementById('search-box').value); }
+function videoChange() {
+  if(document.getElementById('search-box').value.length !== 0){
+    if (navigator.onLine) {
+      if(!shuvi){
+        shuvi = new Shuvi({
+          video_id : VIDEO_ID,                   // 動画ID
+          id       : 'player',                   // 要素のID
+          width    : (3/5) * window.innerWidth,  // 画面の幅
+          height   : window.innerHeight,         // 画面の高さ
+          autoplay : false,                      // [option]自動再生（デフォルトはtrue）
+          loop     : false                       // [option]ループ（デフォルトはfalse)
+        });
+        /* video load ----------------------------------------------------------- */
+        shuvi.on('load', () => {
+          shuvi.setVolume(window.video_volume);
+          shuvi.player.playVideo();
+          document.getElementById('youtube-wrapper').style.display = 'flex';
+          setComponentSize(type);
+          window.addEventListener('resize',() => { setComponentSize(type); });
+          const cw = document.getElementsByClassName('comment-wrap')[0];
+          cw.scrollTop = cw.scrollHeight;
+        });
+      }
+      shuvi.change(document.getElementById('search-box').value);
+      window.shuvi = shuvi;
+    } else if (!navigator.onLine) {
+      dialog.showErrorBox("ネットワーク接続エラー", "ネットワークに接続してください");
+    } else {
+      dialog.showErrorBox("エラー", "予期せぬエラーが発生しました");
+    }
+  }
+}
 
 function restart() {
+  //shuvi.seek(1);
+  shuvi.player.stopVideo();
+  shuvi.player.playVideo();
+}
+
+function latest() {
   shuvi.seek(1);
 }
 

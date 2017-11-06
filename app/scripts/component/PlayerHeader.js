@@ -1,4 +1,4 @@
-window.onload = () => {
+window.addEventListener('load',() => {
 
   const {remote} = require('electron');
 
@@ -7,4 +7,4 @@ window.onload = () => {
   function exit() {
     remote.app.quit();
   }
-};
+});

@@ -7,16 +7,22 @@ class CommentWindow extends Component {
   constructor() {
     super();
     this.youtubeUtil = window.youtubeUtil;
+    this.video_id = '';
     this.state = { comments: [], animation: false };
   }
 
   componentDidMount() {
     const VIDEO_ID = process.env.YOUTUBE_INIT_VIDEO_ID;
     document.getElementById('play').addEventListener('click', () =>{
-      this.setState({ comments: [], animation: false });
-      this.commentChange();
+      if(document.getElementById('search-box').value.length !== 0 && navigator.onLine){
+        this.setState({ comments: [], animation: false });
+        this.commentChange();
+      }
     }, false);
     this.connectComment(VIDEO_ID);
+    document.getElementById('reload').addEventListener('click', () => {
+      this.commentReload();
+    }, false);
   }
 
   componentDidUpdate(){
@@ -25,21 +31,31 @@ class CommentWindow extends Component {
   }
 
   commentChange() {
-    const video_id = document.getElementById('search').value;
+    this.video_id = document.getElementById('search-box').value;
     this.youtubeUtil.stopComment();
-    this.connectComment(video_id);
+    this.connectComment(this.video_id);
+  }
+
+  commentReload() {
+    this.youtubeUtil.stopComment();
+    this.connectComment(this.video_id);
   }
 
   connectComment(video_id) {
     this.youtubeUtil.connectChat(video_id, (chatId) => {
       this.youtubeUtil.connectComment(chatId, (comments) => {
-        Array.prototype.push.apply(this.state.comments, comments);
-        this.setState({
-          comments: this.state.comments.slice(this.state.comments.length - 200, this.state.comments.length),
-          animation: !this.state.animation
-        });
-        document.getElementById('video-title').textContent = this.youtubeUtil.getTitle();
+        if(comments.length !== 0) {
+          Array.prototype.push.apply(this.state.comments, comments);
+          this.setState({
+            comments: this.state.comments.slice(this.state.comments.length - 200, this.state.comments.length),
+            animation: !this.state.animation
+          });
+        }
       });
+      /* titleの更新 */
+      if(document.getElementById('video-title').textContent !== this.youtubeUtil.getTitle()) {
+        document.getElementById('video-title').textContent = this.youtubeUtil.getTitle();
+      }
     });
   }
 

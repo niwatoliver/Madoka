@@ -1,9 +1,10 @@
-*{
+* {
     margin: 0;
     padding: 0;
 }
-body{
-    font-family: "YouTube Noto",Roboto,arial,sans-serif;
+
+body {
+    font-family: "YouTube Noto", Roboto, arial, sans-serif;
 }
 
 #youtube-wrapper {
@@ -16,13 +17,14 @@ body{
     flex-basis: 400px;
     flex-grow: 2;
 }
-.comment-header{
+
+.comment-header {
     font-size: 18px;
     line-height: 16px;
     padding: 14px 12px 10px 12px;
 }
 
-.comment-wrap{
+.comment-wrap {
     overflow-y: scroll;
     word-break: break-all;
     margin: 0 20px 12px;
@@ -71,6 +73,9 @@ body{
     transition: opacity 0.5s;
     opacity: 0;
     border-radius: 10px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
 }
 
 #player-header {
@@ -90,7 +95,7 @@ body{
 }
 
 /* 閉じるボタン */
-.css-exit{
+.css-exit {
     display: inline-block;
     position: relative;
     margin: 10px 20px 7px;
@@ -100,7 +105,8 @@ body{
     background: #000;
     transform: rotate(45deg);
 }
-.css-exit:before{
+
+.css-exit:before {
     display: block;
     content: "";
     position: absolute;
@@ -111,7 +117,8 @@ body{
     margin-top: -1px;
     background: #000;
 }
-#exit:hover .css-exit, #exit:hover .css-exit:before{
+
+#exit:hover .css-exit, #exit:hover .css-exit:before {
     background-color: #aa96b4;
 }
 
@@ -122,9 +129,10 @@ body{
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+    cursor: default;
 }
 
-#comment-toggle-wrap{
+#comment-toggle-wrap {
     margin-top: 10px;
     margin-right: 12px;
     margin-left: 8px;
@@ -135,11 +143,13 @@ body{
     display: inline-block;
     box-sizing: border-box;
 }
+
 .comment-trigger {
     position: relative;
     width: 25px;
     height: 20px;
 }
+
 .comment-trigger span {
     position: absolute;
     left: 0;
@@ -148,16 +158,20 @@ body{
     background-color: #000;
     border-radius: 2px;
 }
+
 .comment-trigger span:nth-of-type(1) {
     top: 0;
 }
+
 .comment-trigger span:nth-of-type(2) {
     top: 9px;
 }
+
 .comment-trigger span:nth-of-type(3) {
     bottom: 0;
 }
-.comment-trigger:hover span{
+
+.comment-trigger:hover span {
     background-color: #aa96b4;
 }
 
@@ -165,13 +179,14 @@ body{
 .comment-trigger span:nth-of-type(3) {
     width: 10px;
 }
+
 .comment-trigger span:nth-of-type(1) {
-    transform: translate(-1px,6px) rotate(-45deg);
-}
-.comment-trigger span:nth-of-type(3) {
-    transform: translate(-1px,-6px) rotate(45deg);
+    transform: translate(-1px, 6px) rotate(-45deg);
 }
 
+.comment-trigger span:nth-of-type(3) {
+    transform: translate(-1px, -6px) rotate(45deg);
+}
 
 /* volume */
 #volume-wrapper {
@@ -180,6 +195,7 @@ body{
     flex-flow: row nowrap;
     padding: 0 20px;
 }
+
 #volume {
     position: relative;
     width: 100px;
@@ -188,8 +204,9 @@ body{
     margin: 16px 12px;
     border-radius: 10px;
 }
+
 #picker {
-    cursor : pointer;
+    cursor: pointer;
     position: absolute;
     top: -6px;
     left: 50px;
@@ -199,15 +216,24 @@ body{
     background-color: #aa96b4;
 }
 
-#stop, #start, #restart{
-    width: 20px;
+#player-operation-top {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
 }
 
+#player-operation-bottom {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
 
 /* volume icon */
 .volume-icon-wrapper {
     width: 12px;
+    cursor: pointer;
 }
+
 .volume-icon-base {
     font-size: 12px;
     position: relative;
@@ -216,17 +242,19 @@ body{
     margin: 17px 0;
     background-color: #aa96b4;
 }
+
 .volume-icon-base:before {
     content: "";
     position: absolute;
     top: -0.3em;
-    left: 0;
+    left: 1px;
     width: 0;
     height: 0;
     border-top: 0.5em solid transparent;
     border-bottom: 0.5em solid transparent;
     border-right: 0.8em solid #aa96b4;
 }
+
 /* volume3 */
 .volume-icon-3 {
     position: absolute;
@@ -240,6 +268,7 @@ body{
     border-bottom: 0.1em solid transparent;
     border-radius: 100%;
 }
+
 .volume-icon-3::before {
     content: "";
     position: absolute;
@@ -253,6 +282,7 @@ body{
     border-bottom: 0.1em solid transparent;
     border-radius: 100%;
 }
+
 .volume-icon-3::after {
     content: "";
     position: absolute;
@@ -267,20 +297,131 @@ body{
     border-radius: 100%;
 }
 
-
-#current-time, #video-time{
+#current-time, #video-time {
     width: 50px;
     font-size: 12px;
     text-align: center;
 }
 
 /* 検索 */
-#search{
-    margin-left: 8px;
+#search {
+    margin-left: 12px;
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
 }
+
 #search-box {
-    width: 80px;
+    width: 112px;
+    height: 20px;
+    color: #aa96b4;
+    border: solid 2px #aa96b4;
+    border-radius: 4px;
+    padding: 0 4px;
+}
+
+#search-label {
+    font-size: 12px;
+    margin-right: 6px;
+}
+
+.search-icon {
+    height: 20px;
+    width: 20px;
+    display: block;
+    position: relative;
+    margin-left: 12px;
+    cursor: pointer;
+}
+
+.search-icon:before, .search-icon:after {
+    content: '';
+    height: 10px;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.search-icon:before {
+    width: 10px;
+    border: 2px #aa96b4 solid;
+    border-radius: 100%;
+}
+
+.search-icon:after {
+    width: 2px;
+    background: #aa96b4;
+    transform: rotate(-45deg);
+    top: 10px;
+    left: 14px;
+}
+
+/* 再生ボタン */
+
+.play-icon {
+    height: 24px;
+    width: 24px;
+    border: 2px solid #aa96b4;
+    border-radius: 6px;
+    position: relative;
+}
+
+.play-icon:before {
+    content: '';
+    height: 0;
+    width: 0;
+    display: block;
+    border: 8px transparent solid;
+    border-right-width: 0;
+    border-left-color: #aa96b4;
+    position: absolute;
+    top: 4px;
+    left: 9px;
+}
+
+.stop-icon {
+    height: 24px;
+    width: 24px;
+    border: 2px solid #aa96b4;
+    border-radius: 6px;
+    position: relative;
+}
+
+.stop-icon:before {
+    content: '';
+    height: 12px;
+    width: 12px;
+    display: block;
+    background: #aa96b4;
+    position: absolute;
+    top: 6px;
+    left: 6px;
+}
+
+/* reload */
+
+.reload-icon{
+    position: relative;
+    width: 24px;
+    height: 24px;
+    border: 2px solid;
+    border-right-color: transparent;
+    border-radius: 100%;
+    box-sizing: border-box;
+    color:  #aa96b4;
+}
+
+.reload-icon:before{
+    position: absolute;
+    top: 6px;
+    right: -4px;
+    content: "";
+    height: 50%;
+    border: 6px solid transparent;
+    border-top: 10px solid;
+    background: transparent;
+    transform-origin: left top;
+    transform: rotate(-40deg);
+    box-sizing: border-box;
 }
