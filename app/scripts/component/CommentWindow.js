@@ -29,20 +29,24 @@ class CommentWindow extends Component {
   }
 
   commentChange() {
-    this.video_id = document.getElementById('search-box').value;
     this.youtubeUtil.stopComment();
+    this.video_id = document.getElementById('search-box').value;
     this.connectComment(this.video_id);
   }
 
   commentReload() {
     this.youtubeUtil.stopComment();
+    this.setState({
+      comments: [],
+      animation: !this.state.animation
+    });
     this.connectComment(this.video_id);
   }
 
   connectComment(video_id) {
     this.youtubeUtil.connectChat(video_id, (chatId) => {
       this.youtubeUtil.connectComment(chatId, (comments) => {
-        if(comments.length !== 0) {
+        if(comments.length !== 0 && this.state.comments !== comments) {
           Array.prototype.push.apply(this.state.comments, comments);
           this.setState({
             comments: this.state.comments.slice(this.state.comments.length - 200, this.state.comments.length),
