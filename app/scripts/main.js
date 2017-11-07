@@ -108,6 +108,12 @@ document.getElementById('start').addEventListener('click', start, false);
 document.getElementById('play').addEventListener('click', videoChange, false);
 document.getElementById('latest').addEventListener('click', latest, false);
 
+
+/* Enter event  ----------------------------------------------------------- */
+document.getElementById('search-box').addEventListener('keydown', (e) => {
+  if(e.key === 'Enter'){ videoChange();}
+}, false);
+
 /* Change video  ---------------------------------------------------------- */
 function videoChange() {
   if(document.getElementById('search-box').value.length !== 0){
