@@ -168,14 +168,3 @@ function stop() {
     document.getElementById('stop').style.display = 'none';
   }
 }
-
-setInterval(function () {
-  console.log('=============================');
-  console.log('duration');
-  console.log(shuvi.duration());
-  console.log('current');
-  console.log(shuvi.current());
-  // console.log(shuvi.player.getCurrentTime());
-  // console.log('buffer');
-  // console.log(shuvi.buffer());
-}, 1000);

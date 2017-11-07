@@ -12,7 +12,6 @@ class Volume extends Component {
   }
   componentDidMount() {
     const pickerElement = document.getElementById('picker');
-    console.log(pickerElement.getBoundingClientRect().left);
     pickerElement.addEventListener("mousedown" , () => { this.dragFlg = true; });
     pickerElement.addEventListener("mouseup" , () => { this.dragFlg = false; });
     pickerElement.addEventListener("mouseout" , () => { this.dragFlg = false; });
