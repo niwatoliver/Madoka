@@ -5,6 +5,7 @@
 
 body {
     font-family: "YouTube Noto", Roboto, arial, sans-serif;
+    color: #000;
 }
 
 #youtube-wrapper {
@@ -71,7 +72,7 @@ body {
     bottom: 20px;
     left: calc(50% - 200px);
     transition: opacity 0.5s;
-    opacity: 0;
+    /*opacity: 0;*/
     border-radius: 10px;
     display: flex;
     flex-flow: column nowrap;
@@ -102,7 +103,7 @@ body {
     padding: 0;
     width: 2px;
     height: 20px;
-    background: #000;
+    background: #A9A9A9;
     transform: rotate(45deg);
 }
 
@@ -115,7 +116,7 @@ body {
     width: 20px;
     height: 2px;
     margin-top: -1px;
-    background: #000;
+    background: #A9A9A9;
 }
 
 #exit:hover .css-exit, #exit:hover .css-exit:before {
@@ -155,7 +156,7 @@ body {
     left: 0;
     width: 100%;
     height: 2px;
-    background-color: #000;
+    background-color: #A9A9A9;
     border-radius: 2px;
 }
 
@@ -219,7 +220,8 @@ body {
 #player-operation-top {
     display: flex;
     flex-flow: row nowrap;
-    justify-content: space-between;
+    justify-content: space-around;
+    margin: 8px 10px 0;
 }
 
 #player-operation-bottom {
@@ -358,6 +360,9 @@ body {
 }
 
 /* 再生ボタン */
+#play {
+    cursor: pointer;
+}
 
 .play-icon {
     height: 24px;
@@ -380,6 +385,10 @@ body {
     left: 9px;
 }
 
+#stop {
+    cursor: pointer;
+}
+
 .stop-icon {
     height: 24px;
     width: 24px;
@@ -400,22 +409,26 @@ body {
 }
 
 /* reload */
+#reload {
+    cursor: pointer;
+}
 
-.reload-icon{
+.reload-icon {
     position: relative;
+    margin-top: 2px;
     width: 24px;
     height: 24px;
-    border: 2px solid;
+    border: 3px solid;
     border-right-color: transparent;
     border-radius: 100%;
     box-sizing: border-box;
-    color:  #aa96b4;
+    color: #aa96b4;
 }
 
-.reload-icon:before{
+.reload-icon:before {
     position: absolute;
-    top: 6px;
-    right: -4px;
+    top: 5px;
+    right: -5px;
     content: "";
     height: 50%;
     border: 6px solid transparent;
@@ -424,4 +437,64 @@ body {
     transform-origin: left top;
     transform: rotate(-40deg);
     box-sizing: border-box;
+}
+
+/* latest */
+#latest {
+    cursor: pointer;
+}
+
+.latest-icon {
+    height: 24px;
+    width: 24px;
+    border: 2px solid #aa96b4;
+    border-radius: 6px;
+    position: relative;
+}
+
+.latest-icon:before {
+    content: '';
+    height: 0;
+    width: 0;
+    display: block;
+    border: 8px transparent solid;
+    border-right-width: 0;
+    border-left-color: #aa96b4;
+    position: absolute;
+    top: 4px;
+    left: 6px;
+}
+
+.latest-icon:after {
+    content: '';
+    height: 16px;
+    width: 3px;
+    display: block;
+    background: #aa96b4;
+    position: absolute;
+    top: 4px;
+    left: 16px;
+}
+
+
+/* setting */
+#setting {
+    cursor: pointer;
+    height: 28px;
+    width: 28px;
+    position: relative;
+}
+
+.setting-icon {
+    width: 28px;
+    height: 28px;
+    fill: rgb(170, 150, 180);
+}
+
+/* now-time */
+#now-time {
+    width: 160px;
+    text-align: left;
+    margin-top: 2px;
+    font-size: 16px;
 }

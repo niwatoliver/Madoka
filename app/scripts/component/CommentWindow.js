@@ -52,10 +52,10 @@ class CommentWindow extends Component {
           });
         }
       });
+    }, (title) => {
       /* titleの更新 */
-      if(document.getElementById('video-title').textContent !== this.youtubeUtil.getTitle()) {
-        document.getElementById('video-title').textContent = this.youtubeUtil.getTitle();
-      }
+      const titleElm = document.getElementById('video-title');
+      if(titleElm.textContent !== title) { titleElm.textContent = title; }
     });
   }
 

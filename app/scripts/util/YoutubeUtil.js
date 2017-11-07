@@ -13,12 +13,12 @@ export default class YoutubeComment {
     this._title = '';
   }
 
-  connectChat(video_id, fn) {
+  connectChat(video_id, commentF, titleF) {
     youtube.videos.list({part: 'snippet, liveStreamingDetails', id: video_id, auth: this._apiKey}, (err, data) => {
       if (err) { console.error('Error: ' + err); }
+      if(data && data.items[0]){ titleF(this._title = data.items[0].snippet.title); }
       if (data && data.items[0] && data.items[0].liveStreamingDetails && data.items[0].liveStreamingDetails.activeLiveChatId) {
-        this._title = data.items[0].snippet.title;
-        fn(data.items[0].liveStreamingDetails.activeLiveChatId);
+        commentF(data.items[0].liveStreamingDetails.activeLiveChatId);
       } else { console.log(data); }
     });
     return this;
