@@ -11,6 +11,7 @@ export default class YoutubeComment {
     this._timer = null;
     this._pollingIntervalMillis = 0;
     this._title = '';
+    this._time = '00:00:00';
   }
 
   connectChat(video_id, commentF, titleF) {
@@ -19,7 +20,7 @@ export default class YoutubeComment {
       if(data && data.items[0]){ titleF(this._title = data.items[0].snippet.title); }
       if (data && data.items[0] && data.items[0].liveStreamingDetails && data.items[0].liveStreamingDetails.activeLiveChatId) {
         commentF(data.items[0].liveStreamingDetails.activeLiveChatId);
-      } else { console.log(data); }
+      } //else { console.log(data); }
     });
     return this;
   }

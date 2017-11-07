@@ -8,7 +8,6 @@ window.youtubeUtil = new YoutubeUtil(process.env.YOUTUBE_API_KRY);
 const { remote, webFrame } = require('electron');
 const currentWindow = remote.getCurrentWindow();
 const dialog = remote.dialog;
-const VIDEO_ID = process.env.YOUTUBE_INIT_VIDEO_ID;
 let type = 'default-comment';
 let shuvi = null;
 
@@ -115,7 +114,7 @@ function videoChange() {
     if (navigator.onLine) {
       if(!shuvi){
         shuvi = new Shuvi({
-          video_id : VIDEO_ID,                   // 動画ID
+          video_id : '',                         // 動画ID
           id       : 'player',                   // 要素のID
           width    : (3/5) * window.innerWidth,  // 画面の幅
           height   : window.innerHeight,         // 画面の高さ
@@ -170,13 +169,13 @@ function stop() {
   }
 }
 
-// setInterval(function () {
-//   console.log('=============================');
-//   console.log('duration');
-//   console.log(shuvi.duration());
-//   console.log('current');
-//   console.log(shuvi.current());
-//   // console.log(shuvi.player.getCurrentTime());
-//   // console.log('buffer');
-//   // console.log(shuvi.buffer());
-// }, 1000);
+setInterval(function () {
+  console.log('=============================');
+  console.log('duration');
+  console.log(shuvi.duration());
+  console.log('current');
+  console.log(shuvi.current());
+  // console.log(shuvi.player.getCurrentTime());
+  // console.log('buffer');
+  // console.log(shuvi.buffer());
+}, 1000);

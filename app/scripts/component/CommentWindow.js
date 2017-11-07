@@ -12,14 +12,12 @@ class CommentWindow extends Component {
   }
 
   componentDidMount() {
-    const VIDEO_ID = process.env.YOUTUBE_INIT_VIDEO_ID;
     document.getElementById('play').addEventListener('click', () =>{
       if(document.getElementById('search-box').value.length !== 0 && navigator.onLine){
         this.setState({ comments: [], animation: false });
         this.commentChange();
       }
     }, false);
-    this.connectComment(VIDEO_ID);
     document.getElementById('reload').addEventListener('click', () => {
       this.commentReload();
     }, false);
