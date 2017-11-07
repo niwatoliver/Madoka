@@ -15,11 +15,11 @@ let mainWindow
 function createWindow () {
   // Create the browser window.
   mainWindow = new BrowserWindow({
-    width: 890,
-    height: 300,
+    width: 900,
+    height: 304,
     //transparent: true,
     frame: false,
-    backgroundColor: '#696969'
+    backgroundColor: '#C0C0C0'
   })
 
   // and load the index.html of the app.
@@ -29,7 +29,7 @@ function createWindow () {
     slashes: true
   }))
 
-  mainWindow.setMinimumSize(700, 235)
+  mainWindow.setMinimumSize(900, 304)
 
   // Open the DevTools.
   mainWindow.webContents.openDevTools()

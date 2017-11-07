@@ -492,6 +492,26 @@ body {
     fill: rgb(170, 150, 180);
 }
 
+#setting-menu {
+    color: #000;
+    width: 80px;
+    height: 150px;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.7);
+    position: absolute;
+    top: -154px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+    align-items: flex-end;
+    padding-right: 16px;
+}
+
+#setting-menu-title {
+    width: 70px;
+    border-bottom: 1px solid #000;
+}
+
 /* now-time */
 #now-time {
     width: 160px;

@@ -18,7 +18,7 @@ const triggerSpans = document.getElementsByClassName('comment-trigger')[0].child
 
 /* Window on load -------------------------------------------------- */
 window.addEventListener('load',() => {
-  if(currentWindow.getSize()[0] < 700){
+  if(currentWindow.getSize()[0] < 900){
     //TODO リファクタ
     document.getElementById('comment-window').style.display = 'none';
     triggerSpans[0].style.width = '25px';
@@ -26,7 +26,7 @@ window.addEventListener('load',() => {
     triggerSpans[0].style.transform = 'translate(0px) rotate(0deg)';
     triggerSpans[2].style.transform = 'translate(0px) rotate(0deg)';
     type = 'hidden-comment';
-    currentWindow.setMinimumSize(420, 235);
+    currentWindow.setMinimumSize(540, 304);
     setComponentSize(type);
   }
   setComponentSize(type);
@@ -78,7 +78,7 @@ function toggleComment() {
 
 /* Comment Hidden  ------------------------------------------------- */
 function hiddenComment() {
-  currentWindow.setMinimumSize(420, 235);
+  currentWindow.setMinimumSize(540, 304);
   currentWindow.setSize(
     currentWindow.getSize()[0] - document.getElementById('comment-window').offsetWidth,
     currentWindow.getSize()[1]
@@ -90,7 +90,7 @@ function hiddenComment() {
 
 /* Comment Open  -------------------------------------------------- */
 function openComment() {
-  currentWindow.setMinimumSize(700, 235);
+  currentWindow.setMinimumSize(900, 304);
   currentWindow.setSize(
     Math.round(document.getElementById('player-wrapper').offsetWidth * (5/3)),
     currentWindow.getSize()[1]
