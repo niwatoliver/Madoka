@@ -360,11 +360,11 @@ body {
 }
 
 /* 再生ボタン */
-#play {
+#start {
     cursor: pointer;
 }
 
-.play-icon {
+.start-icon {
     height: 24px;
     width: 24px;
     border: 2px solid #aa96b4;
@@ -372,7 +372,7 @@ body {
     position: relative;
 }
 
-.play-icon:before {
+.start-icon:before {
     content: '';
     height: 0;
     width: 0;
@@ -387,6 +387,7 @@ body {
 
 #stop {
     cursor: pointer;
+    display: none;
 }
 
 .stop-icon {
