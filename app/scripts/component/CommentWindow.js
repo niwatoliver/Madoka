@@ -12,38 +12,44 @@ class CommentWindow extends Component {
   }
 
   componentDidMount() {
+    /* Click play */
     document.getElementById('play').addEventListener('click', () =>{
       if(document.getElementById('search-box').value.length !== 0 && navigator.onLine){
-        this.setState({ comments: [], animation: false });
-        this.commentChange();
+        this.video_id = document.getElementById('search-box').value;
+        this.commentLoad(this.video_id);
       }
     }, false);
+    /* Click reload */
     document.getElementById('reload').addEventListener('click', () => {
-      this.commentReload();
+      this.commentLoad(this.video_id);
+    }, false);
+    /* Enter */
+    document.getElementById('search-box').addEventListener('keydown', (e) => {
+      if(e.key === 'Enter' && document.getElementById('search-box').value.length !== 0 && navigator.onLine) {
+        this.video_id = document.getElementById('search-box').value;
+        this.commentLoad(this.video_id);
+      }
     }, false);
   }
 
+  /* AutoScroll */
+  //TODO 設定で変えられるようにする
   componentDidUpdate(){
     const cw = document.getElementsByClassName('comment-wrap')[0];
     cw.scrollTop = cw.scrollHeight;
   }
 
-  commentChange() {
-    this.youtubeUtil.stopComment();
-    this.video_id = document.getElementById('search-box').value;
-    this.connectComment(this.video_id);
-  }
-
-  commentReload() {
+  commentLoad(video_id) {
     this.youtubeUtil.stopComment();
     this.setState({
       comments: [],
       animation: !this.state.animation
     });
-    this.connectComment(this.video_id);
+    this.connectComment(video_id);
   }
 
   connectComment(video_id) {
+    /* チャットに接続 */
     this.youtubeUtil.connectChat(video_id, (chatId) => {
       this.youtubeUtil.connectComment(chatId, (comments) => {
         if(comments.length !== 0 && this.state.comments !== comments) {
