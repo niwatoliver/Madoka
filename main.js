@@ -15,8 +15,8 @@ let mainWindow
 function createWindow () {
   // Create the browser window.
   mainWindow = new BrowserWindow({
-    width: 900,
-    height: 304,
+    width: 920,
+    height: 360,
     //transparent: true,
     frame: false,
     backgroundColor: '#C0C0C0'
@@ -29,7 +29,7 @@ function createWindow () {
     slashes: true
   }))
 
-  mainWindow.setMinimumSize(900, 304)
+  mainWindow.setMinimumSize(920, 360)
 
   // Open the DevTools.
   mainWindow.webContents.openDevTools()

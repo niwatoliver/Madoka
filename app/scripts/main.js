@@ -16,9 +16,9 @@ let shuvi = null;
 //webFrame.setZoomLevelLimits(1, 1);
 const triggerSpans = document.getElementsByClassName('comment-trigger')[0].children;
 
-/* Window on load -------------------------------------------------- */
+/* Window on load ------------------------------------------------- */
 window.addEventListener('load',() => {
-  if(currentWindow.getSize()[0] < 900){
+  if(currentWindow.getSize()[0] < 920){
     //TODO リファクタ
     document.getElementById('comment-window').style.display = 'none';
     triggerSpans[0].style.width = '25px';
@@ -26,19 +26,19 @@ window.addEventListener('load',() => {
     triggerSpans[0].style.transform = 'translate(0px) rotate(0deg)';
     triggerSpans[2].style.transform = 'translate(0px) rotate(0deg)';
     type = 'hidden-comment';
-    currentWindow.setMinimumSize(540, 304);
+    currentWindow.setMinimumSize(552, 304);
     setComponentSize(type);
   }
   setComponentSize(type);
   document.getElementById('youtube-wrapper').style.display = 'flex';
 });
 
-/* Window on resize ------------------------------------------------- */
+/* Window on resize ----------------------------------------------- */
 window.addEventListener('resize',() => { setComponentSize(type); });
 window.video_volume = 0.6;
 
 
-/* Resize ----------------------------------------------------------- */
+/* Resize --------------------------------------------------------- */
 function setComponentSize(type){
   if(type === 'default-comment'){
     document.getElementsByClassName('comment-wrap')[0].style.height = window.innerHeight - 56 + 'px';
@@ -57,7 +57,7 @@ function setComponentSize(type){
   }
 }
 
-/* Comment toggle --------------------------------------------------- */
+/* Comment toggle ------------------------------------------------- */
 document.getElementById('comment-toggle-wrap').addEventListener('click', toggleComment, false);
 function toggleComment() {
   if(type === 'default-comment'){
@@ -76,9 +76,9 @@ function toggleComment() {
   }
 }
 
-/* Comment Hidden  ------------------------------------------------- */
+/* Comment Hidden  ------------------------------------------------ */
 function hiddenComment() {
-  currentWindow.setMinimumSize(540, 304);
+  currentWindow.setMinimumSize(552, 304);
   currentWindow.setSize(
     currentWindow.getSize()[0] - document.getElementById('comment-window').offsetWidth,
     currentWindow.getSize()[1]
@@ -90,7 +90,7 @@ function hiddenComment() {
 
 /* Comment Open  -------------------------------------------------- */
 function openComment() {
-  currentWindow.setMinimumSize(900, 304);
+  currentWindow.setMinimumSize(920, 360);
   currentWindow.setSize(
     Math.round(document.getElementById('player-wrapper').offsetWidth * (5/3)),
     currentWindow.getSize()[1]
@@ -101,20 +101,21 @@ function openComment() {
   type = 'default-comment';
 }
 
-/* Click event  ----------------------------------------------------------- */
+/* Click event  --------------------------------------------------- */
 document.getElementById('reload').addEventListener('click', restart, false);
 document.getElementById('stop').addEventListener('click', stop, false);
 document.getElementById('start').addEventListener('click', start, false);
 document.getElementById('play').addEventListener('click', videoChange, false);
 document.getElementById('latest').addEventListener('click', latest, false);
+document.getElementById('setting').addEventListener('click', setting, false);
 
 
-/* Enter event  ----------------------------------------------------------- */
+/* Enter event  --------------------------------------------------- */
 document.getElementById('search-box').addEventListener('keydown', (e) => {
   if(e.key === 'Enter'){ videoChange();}
 }, false);
 
-/* Change video  ---------------------------------------------------------- */
+/* Change video  -------------------------------------------------- */
 function videoChange() {
   if(document.getElementById('search-box').value.length !== 0){
     if (navigator.onLine) {
@@ -127,7 +128,7 @@ function videoChange() {
           autoplay : false,                      // [option]自動再生（デフォルトはtrue）
           loop     : false                       // [option]ループ（デフォルトはfalse)
         });
-        /* Video load ------------------------------------------------------ */
+        /* Video load --------------------------------------------- */
         shuvi.on('load', () => {
           shuvi.setVolume(window.video_volume);
           shuvi.player.playVideo();
@@ -174,3 +175,20 @@ function stop() {
     document.getElementById('stop').style.display = 'none';
   }
 }
+
+/* Setting function  ---------------------------------------------- */
+function setting() {
+  const settingMenuStyle = document.getElementById('setting-menu').style;
+  if(settingMenuStyle.display === 'flex'){ settingMenuStyle.display = 'none'; }
+  else { settingMenuStyle.display = 'flex'; }
+}
+
+document.addEventListener('click', (e) => {
+  if(e.target.closest('#setting-wrap') === null) {
+    const settingMenuStyle = document.getElementById('setting-menu').style;
+    if(settingMenuStyle.display === 'flex'){ settingMenuStyle.display = 'none'; }
+  }
+});
+
+
+

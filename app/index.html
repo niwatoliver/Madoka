@@ -30,19 +30,11 @@
           <div id="start" class="start-icon"></div>
           <div id="latest" class="latest-icon"></div>
           <div id="reload" class="reload-icon"></div>
-          <div id="setting">
-            <svg class="setting-icon">
+          <div id="setting-wrap">
+            <svg class="setting-icon" id="setting">
               <use xlink:href="icon/setting.svg#icon"></use>
             </svg>
-            <div id="setting-menu">
-              <p id="setting-menu-title">画質</p>
-              <p>720p60</p>
-              <p>480p</p>
-              <p>360p</p>
-              <p>260p</p>
-              <p>114p</p>
-              <p>自動</p>
-            </div>
+            <div id="setting-menu"></div>
           </div>
         </div>
         <div id="player-operation-bottom">
@@ -68,7 +60,6 @@
   </div>
   <div id="comment-window"></div>
 </div>
-
 
 <script>
   require('babel-register');
