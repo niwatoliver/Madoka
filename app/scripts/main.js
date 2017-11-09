@@ -12,8 +12,7 @@ let type = 'default-comment';
 let shuvi = null;
 
 
-//TODO
-//webFrame.setZoomLevelLimits(1, 1);
+webFrame.setZoomLevelLimits(1, 1);
 const triggerSpans = document.getElementsByClassName('comment-trigger')[0].children;
 
 /* Window on load ------------------------------------------------- */
@@ -26,9 +25,9 @@ window.addEventListener('load',() => {
     triggerSpans[0].style.transform = 'translate(0px) rotate(0deg)';
     triggerSpans[2].style.transform = 'translate(0px) rotate(0deg)';
     type = 'hidden-comment';
-    currentWindow.setMinimumSize(552, 304);
+    currentWindow.setMinimumSize(552, 360);
     setComponentSize(type);
-  }
+  } else { currentWindow.setMinimumSize(920, 360); }
   setComponentSize(type);
   document.getElementById('youtube-wrapper').style.display = 'flex';
 });
@@ -78,7 +77,7 @@ function toggleComment() {
 
 /* Comment Hidden  ------------------------------------------------ */
 function hiddenComment() {
-  currentWindow.setMinimumSize(552, 304);
+  currentWindow.setMinimumSize(552, 360);
   currentWindow.setSize(
     currentWindow.getSize()[0] - document.getElementById('comment-window').offsetWidth,
     currentWindow.getSize()[1]
