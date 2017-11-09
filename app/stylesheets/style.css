@@ -86,6 +86,7 @@ body {
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
+    /* TODO win対応 */
     -webkit-app-region: drag;
     region: drag;
     background-color: #FFF;

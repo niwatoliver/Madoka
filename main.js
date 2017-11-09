@@ -1,12 +1,13 @@
 const electron = require('electron')
 // Module to control application life.
 const app = electron.app
+const Menu = electron.Menu
 // Module to create native browser window.
 const BrowserWindow = electron.BrowserWindow
 
 const path = require('path')
 const url = require('url')
-require('dotenv').config()
+require('dotenv').config({ path: __dirname + '/.env' })
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -14,6 +15,8 @@ require('dotenv').config()
 let mainWindow
 
 function createWindow () {
+  const menu = Menu.buildFromTemplate(templateMenu);
+  Menu.setApplicationMenu(menu);
   // Create the browser window.
   mainWindow = new BrowserWindow({
     width: 920,
@@ -33,7 +36,7 @@ function createWindow () {
   mainWindow.setMinimumSize(920, 360)
 
   // Open the DevTools.
-  mainWindow.webContents.openDevTools()
+  //mainWindow.webContents.openDevTools()
 
   // Emitted when the window is closed.
   mainWindow.on('closed', function () {
@@ -68,4 +71,38 @@ app.on('activate', function () {
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
+
+// ElectronのMenuの設定
+const templateMenu = [
+  {
+    label: 'Edit',
+    submenu: [
+      {role: 'quit'},
+      {role: 'undo'},
+      {role: 'redo'},
+      {role: 'cut'},
+      {role: 'copy'},
+      {role: 'paste'},
+      {role: 'pasteandmatchstyle'},
+      {role: 'delete'},
+      {role: 'selectall'}
+    ]
+  }, {
+    label: 'View',
+    submenu: [
+      {role: 'reload'},
+      {role: 'forcereload'},
+      {role: 'toggledevtools'},
+      {type: 'separator'},
+      {role: 'togglefullscreen'}
+    ]
+  }, {
+    role: 'window',
+    submenu: [
+      {role: 'minimize'},
+      {role: 'close'}
+    ]
+  }
+];
+
 
