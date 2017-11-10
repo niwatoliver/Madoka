@@ -22,7 +22,7 @@ class Volume extends Component {
         this.setVolume(this.x, pickerElement);
       }
     });
-    document.getElementById('volume-zero').addEventListener("click" , () => { this.setVolume(0, pickerElement); });
+    document.getElementById('volume-zero').addEventListener("click" , () => { this.setVolume(-10, pickerElement); });
     document.getElementById('volume-max').addEventListener("click" , () => { this.setVolume(90, pickerElement); });
   }
 
