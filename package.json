@@ -12,9 +12,7 @@
     "package:win": "$(npm bin)/electron-packager --package-manager yarn . Madoka --out=build --platform win32 --arch x64 --overwrite --electronVersion=1.7.9"
   },
   "dependencies": {
-    "googleapis": "^22.2.0",
-    "shuvi-lib": "^1.0.6",
-    "youtube-node": "^1.3.2"
+    "googleapis": "^22.2.0"
   },
   "devDependencies": {
     "react": "^16.0.0",
@@ -39,6 +37,8 @@
     "eslint-plugin-jsx-a11y": "^6.0.2",
     "eslint-plugin-node": "^5.2.1",
     "eslint-plugin-react": "^7.4.0",
-    "webpack": "^3.8.1"
+    "webpack": "^3.8.1",
+    "shuvi-lib": "^1.0.6",
+    "youtube-node": "^1.3.2"
   }
 }

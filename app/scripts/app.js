@@ -32,9 +32,9 @@ window.addEventListener('load',() => {
     triggerSpans[0].style.transform = 'translate(0px) rotate(0deg)';
     triggerSpans[2].style.transform = 'translate(0px) rotate(0deg)';
     type = 'hidden-comment';
-    currentWindow.setMinimumSize(552, 360);
+    currentWindow.setMinimumSize(552, 350);
     setComponentSize(type);
-  } else { currentWindow.setMinimumSize(920, 360); }
+  } else { currentWindow.setMinimumSize(920, 350); }
   setComponentSize(type);
   document.getElementById('youtube-wrapper').style.display = 'flex';
 });
@@ -49,17 +49,17 @@ function setComponentSize(type){
   if(type === 'default-comment'){
     document.getElementsByClassName('comment-wrap')[0].style.height = window.innerHeight - 56 + 'px';
     document.getElementById('overlay').style.width = (3/5) * window.innerWidth + 'px';
-    document.getElementById('overlay').style.height = window.innerHeight + 'px';
+    document.getElementById('overlay').style.height = window.innerHeight - 40 + 'px';
     document.getElementById('player-wrapper').style.height = window.innerHeight + 'px';
-    if(shuvi){ shuvi.resize((3/5) * window.innerWidth, window.innerHeight); }
+    if(shuvi){ shuvi.resize((3/5) * window.innerWidth, window.innerHeight - 40); }
   } else if(type === 'open-comment'){
     document.getElementsByClassName('comment-wrap')[0].style.height = window.innerHeight - 56 + 'px';
     document.getElementById('player-wrapper').style.height = window.innerHeight + 'px';
   } else if(type === 'hidden-comment'){
     document.getElementById('overlay').style.width = window.innerWidth + 'px';
-    document.getElementById('overlay').style.height = window.innerHeight + 'px';
+    document.getElementById('overlay').style.height = window.innerHeight - 40 + 'px';
     document.getElementById('player-wrapper').style.height = window.innerHeight + 'px';
-    if(shuvi){ shuvi.resize(window.innerWidth, window.innerHeight); }
+    if(shuvi){ shuvi.resize(window.innerWidth, window.innerHeight - 40); }
   }
 }
 
@@ -84,7 +84,7 @@ function toggleComment() {
 
 /* Comment Hidden  ------------------------------------------------ */
 function hiddenComment() {
-  currentWindow.setMinimumSize(552, 360);
+  currentWindow.setMinimumSize(552, 350);
   currentWindow.setSize(
     currentWindow.getSize()[0] - document.getElementById('comment-window').offsetWidth,
     currentWindow.getSize()[1]
@@ -96,7 +96,7 @@ function hiddenComment() {
 
 /* Comment Open  -------------------------------------------------- */
 function openComment() {
-  currentWindow.setMinimumSize(920, 360);
+  currentWindow.setMinimumSize(920, 350);
   currentWindow.setSize(
     Math.round(document.getElementById('player-wrapper').offsetWidth * (5/3)),
     currentWindow.getSize()[1]
@@ -130,7 +130,7 @@ function videoChange() {
           video_id : '',                         // 動画ID
           id       : 'player',                   // 要素のID
           width    : (3/5) * window.innerWidth,  // 画面の幅
-          height   : window.innerHeight,         // 画面の高さ
+          height   : window.innerHeight - 40,         // 画面の高さ
           autoplay : false,                      // [option]自動再生（デフォルトはtrue）
           loop     : false                       // [option]ループ（デフォルトはfalse)
         });

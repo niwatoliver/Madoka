@@ -19,7 +19,7 @@ function createWindow () {
   // Create the browser window.
   mainWindow = new BrowserWindow({
     width: 920,
-    height: 360,
+    height: 350,
     frame: false,
     backgroundColor: '#C1C1C1'
   })
@@ -34,7 +34,7 @@ function createWindow () {
   mainWindow.setMinimumSize(920, 360)
 
   // Open the DevTools.
-  mainWindow.webContents.openDevTools()
+  //mainWindow.webContents.openDevTools()
 
   // Emitted when the window is closed.
   mainWindow.on('closed', function () {
