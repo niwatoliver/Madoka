@@ -8,8 +8,9 @@
     "start": "$(npm bin)/electron .",
     "build": "$(npm bin)/webpack",
     "watch": "$(npm bin)/webpack --watch",
-    "package:mac": "$(npm bin)/electron-packager --package-manager yarn . Madoka --out=build --platform darwin --arch x64 --overwrite --electronVersion=1.7.9",
-    "package:win": "$(npm bin)/electron-packager --package-manager yarn . Madoka --out=build --platform win32 --arch x64 --overwrite --electronVersion=1.7.9"
+    "package:mac": "$(npm bin)/electron-packager --package-manager yarn . Madoka --out=build --platform darwin --arch x64 --icon=icons/icon.icns --overwrite --electronVersion=1.7.9",
+    "package:win": "$(npm bin)/electron-packager --package-manager yarn . Madoka --out=build --platform win32 --arch x64 --icon=icons/icon.ico --overwrite --electronVersion=1.7.9",
+    "package:linux": "$(npm bin)/electron-packager --package-manager yarn . Madoka --out=build --platform linux --arch x64 --icon=icons/icon.icos --overwrite --electronVersion=1.7.9"
   },
   "dependencies": {
     "googleapis": "^22.2.0"
