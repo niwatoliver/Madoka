@@ -1,9 +1,33 @@
 {
-  "name": "madoka",
-  "version": "0.0.0",
+  "name": "Madoka",
+  "version": "0.1.0",
+  "description": "YouTube Live Player 「Madoka」",
+  "keywords": [
+    "Electron",
+    "Madoka",
+    "YouTube",
+    "YouTube Live"
+  ],
+  "homepage": "https://github.com/minakawa-daiki/Madoka#readme",
+  "bugs": {
+    "url": "https://github.com/minakawa-daiki/Madoka/issues",
+    "email" : "minakawa.daiki.as@gmail.com"
+  },
   "license": "MIT",
+  "author": {
+    "name":"Oliver",
+    "url":"https://github.com/minakawa-daiki",
+    "mail":"minakawa.daiki.as@gmail.com"
+  },
+  "contributors": [{
+    "name": "yuki540",
+    "url": "https://github.com/yuki540net"
+  }],
   "main": "main.js",
-  "private": true,
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/minakawa-daiki/Madoka.git"
+  },
   "scripts": {
     "start": "$(npm bin)/electron .",
     "build": "$(npm bin)/webpack --progress",
