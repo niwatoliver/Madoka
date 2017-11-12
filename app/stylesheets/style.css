@@ -83,12 +83,10 @@ body {
 }
 
 #player-header {
+    user-select: none;
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
-    /* TODO win対応 */
-    -webkit-app-region: drag;
-    region: drag;
     background-color: #FFF;
     width: 100%;
     height: 40px;
@@ -128,12 +126,16 @@ body {
 
 /* 動画タイトル */
 #video-title {
+    width: 100%;
+    text-align: center;
     font-size: 12px;
     margin-top: 12px;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
     cursor: default;
+    -webkit-app-region: drag;
+    region: drag;
 }
 
 #comment-toggle-wrap {

@@ -10,10 +10,11 @@
   <div id="player-wrapper">
     <div id="player-header">
       <div id="exit">
-        <!-- TODO windows 押せない -->
         <div class="css-exit"></div>
       </div>
-      <p id="video-title">Youtubeの動画IDを入力してください。</p>
+      <div id="video-title">
+        <p>Youtubeの動画IDを入力してください。</p>
+      </div>
       <div id="comment-toggle-wrap">
         <p class="comment-trigger">
           <span></span>
@@ -63,9 +64,9 @@
 </div>
 
 <script>
-//  require('babel-register')();
-//  require('./scripts/app');
-  require('./build/bundle');
+  require('babel-register')();
+  require('./scripts/app');
+//  require('./build/bundle');
 </script>
 </body>
 </html>
