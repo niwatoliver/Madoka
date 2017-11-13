@@ -24,8 +24,8 @@
     操作ウィンドウの歯車マークをクリックすると変更できます。
 
 # 記事
-  - はてなブログ
-  - Qiita
+  - はてなブログ - [Madokaちゃん作った](http://oliver0521.hatenablog.jp/entry/2017/11/13/041257)
+  - Qiita - [Electronで初めてアプリを作ってみた](https://qiita.com/minakawa-daiki/items/fc21cd01cd0feae83593)
 
 # OS
   - OSX
