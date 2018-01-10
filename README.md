@@ -37,8 +37,9 @@
 
 # Contributor
 [yuki540](https://github.com/yuki540net)
+[Thesalmar](https://github.com/thesalmar)
 
-# Licence
+# License
 [MIT](./LICENSE)
 
 
